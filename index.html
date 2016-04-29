@@ -22,6 +22,7 @@
 				Search
 			</button>
 		</form>
+		<a href="#" class="js-see-results">See More Results</a>
 	</div> 
 <!-- End Header and Search Form -->
 <!--  Track Details and Images Container -->
@@ -64,16 +65,39 @@
       </div>
 
       <div class="modal-body">
-      	<img src="" class="js-artist-image" width="200px">
-      	<br>
-        <p class="js-artist-popularity">Popularity</p>
-        <p class="js-artist-followers">Followers</p>
-        <p class="js-artist-genre">Genre</p>
+      	<img src="" class="js-artist-image" width="200px"><br><br>
+        <p><strong>Popularity:</strong> <span class="js-artist-popularity"></span></p>
+        <p><strong>Followers:</strong> <span class="js-artist-followers"></span></p>
+        <p><strong>Genre:</strong> <span class="js-artist-genre"></span></p>
       </div>
 
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Artists Bootstrap Modal -->
+
+<!-- Show More Song Results Bootstrap Modal -->
+<div id="more-results-modal" class="modal fade js-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <!-- Close button -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+
+        <h2>All Results</h2>
+      </div>
+
+      <div class="modal-body">
+        <ol class="js-all-tracks-list">
+        </ol>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Show More Results Modal -->
 </body>
 </html>
