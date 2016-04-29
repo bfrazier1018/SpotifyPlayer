@@ -10,6 +10,10 @@ $(document).on("ready", function() {
 		playPause();
 	});
 
+	$(".author").on("click", function() {
+		$("#artists-modal").modal("show");
+	});
+
 
 });
 
@@ -31,19 +35,21 @@ function findTracks() {
 };
 
 function displayTracks(track) {
-	console.log(track);
+	// console.log(track);
 	$(".title").append(track.name);
-	$(".author").append(track.artists[0].name);
+	$(".author").text(track.artists[0].name);
 	$(".js-image").prop("src", `${track.album.images[0].url}`);
+	var artistId = track.artists[0].id;
 	var audioUrl = track.preview_url;
-	addAudio(audioUrl);
+	addAudio(audioUrl); 
+	findArtists(artistId);
 };
 
 function addAudio(url) {
 	$(".js-audio-player").prop("src", `${url}`);
 };
 
-// Play/ Pause Audio and TimeUpdate Bar -------------------------------------------
+// Play & Pause Audio and TimeUpdate Bar -------------------------------------------
 function playPause() {
 	if ($(".btn-play").hasClass("playing") === false) {
 		$(".js-audio-player").trigger("pause");
@@ -57,4 +63,24 @@ function printTime() {
 	$("progress").prop("value", current)
 };
 
+// Find and Display Artist Information ----------------------------------
+function findArtists(id) {
+	$.ajax({
+		url: `https://api.spotify.com/v1/artists/${id}`,
+		success: function(data) {
+			displayArtist(data);
+		},
+		error: function(error) {
+			console.log("ERROR");
+		},
+	});
+};
 
+function displayArtist(artist) {
+	console.log(artist);
+	$(".js-artist-header").text(artist.name);
+	$(".js-artist-image").prop("src", `${artist.images[0].url}`);
+	$(".js-artist-popularity").html(`<br><p><em>Popularity:<em> ${artist.popularity}</p>`);
+	$(".js-artist-followers").html(`<p><em>Followers:</em> ${artist.followers.total}</p>`);
+	$(".js-artist-genre").html(`<p><em>Genre:<em> ${artist.genres[0]}</p>`);
+};
