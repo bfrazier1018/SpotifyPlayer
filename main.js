@@ -5,9 +5,11 @@ $(document).on("ready", function() {
 	});
 
 	$(".btn-play").on("click", function() {
-		$(".play-preview").trigger("play");
-		$(".play-preview").
+		$(".btn-play").toggleClass("playing");
+		$('.js-audio-player').on('timeupdate', printTime);
+		playPause();
 	});
+
 
 });
 
@@ -32,11 +34,27 @@ function displayTracks(track) {
 	console.log(track);
 	$(".title").append(track.name);
 	$(".author").append(track.artists[0].name);
-	$(".cover").append(`<img src="${track.album.images[0].url}">`);
+	$(".js-image").prop("src", `${track.album.images[0].url}`);
 	var audioUrl = track.preview_url;
-	playAudio(audioUrl);
+	addAudio(audioUrl);
 };
 
-function playAudio(url) {
-	$(".js-audio-player").append(`<audio src="${url}" class="play-preview"></audio>`);
+function addAudio(url) {
+	$(".js-audio-player").prop("src", `${url}`);
 };
+
+// Play/ Pause Audio and TimeUpdate Bar -------------------------------------------
+function playPause() {
+	if ($(".btn-play").hasClass("playing") === false) {
+		$(".js-audio-player").trigger("pause");
+	} else {
+		$(".js-audio-player").trigger("play");
+	};
+};
+
+function printTime() {
+	var current = $(".js-audio-player").prop('currentTime');
+	$("progress").prop("value", current)
+};
+
+
