@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title></title>
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<!-- Personal JavaScript -->
+	<script src="main.js"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- Personal CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Bootstrap JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="title-and-search-form">
+		<h1>Welcome to Spotify Player</h1>
+		<form class="js-search-form">
+			<input type="text" id="js-input-value" placeholder="Enter a Track Title">
+			<button class="js-song-search">
+				Search
+			</button>
+		</form>
+	</div>
+
+	<div class="widget">
+		<div class="header">
+		<!-- Try adding/removing these classes: -->
+		<!-- disabled -->
+		<!-- playing -->
+		<div class="btn-play disabled"></div>
+
+		<div class="metadata">
+		  <p class="title"></p>
+		  <p class="author"></p>
+
+		  <div class="seekbar">
+		    <progress value="5" max="30"></progress>
+		  </div>
+		</div>
+		</div>
+		<div class="cover">
+		<!-- <img src=""> -->
+		</div>
+
+		<audio src="https://p.scdn.co/mp3-preview/8e9c5ffdc38e91659bfe8b6bd44650dfc25a3d31"></audio>
+	</div>
+
+</body>
+</html>
