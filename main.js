@@ -5,6 +5,7 @@ $(document).on("ready", function() {
 		event.preventDefault();
 		findTracks();
 		$(".js-see-results").show();
+		$(".spotify-image").hide();
 	});
 
 	$(".btn-play").on("click", function() {
@@ -106,6 +107,7 @@ function displayArtist(artist) {
 
 // Display and Play a New See Results Track
 function displayAllTracks(tracks) {
+	$(".js-all-tracks-list").empty();
 	// console.log(tracks);
 	tracks.forEach(function(track) {
 		var html =`

@@ -1,9 +1,12 @@
+.container-fluid {
+  background-color: #606060;
+}
+
 .title-and-search-form {
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 50px;
 }
-
-
 
 /* ---------------End my CSS Additions-------------------------*/
 .widget {
@@ -12,6 +15,7 @@
   border-radius: 5px;
   overflow: hidden;
   display: block;
+  margin-bottom: 500px;
 }
 
 .header {
