@@ -1,11 +1,13 @@
 $(document).on("ready", function() {
 	$(".js-see-results").hide();
+	$(".widget").hide();
 
 	$(".js-song-search").on("click", function() {
 		event.preventDefault();
 		findTracks();
 		$(".js-see-results").show();
 		$(".spotify-image").hide();
+		$(".widget").show();
 	});
 
 	$(".btn-play").on("click", function() {

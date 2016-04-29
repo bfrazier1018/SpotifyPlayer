@@ -8,6 +8,10 @@
   margin-top: 50px;
 }
 
+.modal-content {
+  background-color: #660000;
+  color: white;
+}
 /* ---------------End my CSS Additions-------------------------*/
 .widget {
   width: 300px;
@@ -15,7 +19,7 @@
   border-radius: 5px;
   overflow: hidden;
   display: block;
-  margin-bottom: 500px;
+  margin-bottom: 300px;
 }
 
 .header {
